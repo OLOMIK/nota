@@ -1,0 +1,37 @@
+{
+  "name": "nota-9",
+  "version": "9.0.0",
+  "description": "nota - innowacyjny notatnik dla programistów.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OLOMIK/nota-9.git"
+  },
+  "keywords": [
+    "nota",
+    "notepad",
+    "ide",
+    "developers",
+    "gasnicowydivolper"
+  ],
+  "author": "Olomowo Studio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OLOMIK/nota-9/issues"
+  },
+  "homepage": "https://github.com/OLOMIK/nota-9#readme",
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "electron": "^28.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-tabs": "^6.0.2"
+  },
+  "devDependencies": {
+    "electron-packager": "^17.1.2"
+  }
+}
