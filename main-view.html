@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Nota 9</title>
+    <title>Nota 10</title>
 </head>
 <body>
-    <div id="container">
-        <div id="line-numbers" class="line-numbers"></div>
-        <textarea name="main-field" class="main-field" id="dupa"></textarea>
+    <div class="main-view" style="display: none;" id="main-view">
+        <div id="container">
+            <div id="line-numbers" class="line-numbers"></div>
+            <textarea name="main-field" class="main-field" id="dupa"></textarea>
+        </div>
     </div>
+    <div class="maindupaview" id="maindupaview">
+        <h1>Nota 10</h1><br>
+        <button onclick="newproject();">Nowy projekt</button><br>
+        <button onclick="ipcRenderer.send('otworzkurwaplik')">Otwórz projekt</button><br>
+        <button onclick="window.close()">Wyjdź</button>
+        <br>
+        <p>Olomowo Studio 2024</p>
+    </div>
+
     <script src="renderer.js"></script>
 </body>
 </html>

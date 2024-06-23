@@ -20,7 +20,12 @@ function updateLineNumbers(textarea, lineNumbers) {
     // Synchronizacja przewijania licznika linii z edytorem tekstu
     lineNumbers.scrollTop = textarea.scrollTop;
 }
-
+function newproject(){
+    const pierwszeokno = document.getElementById("maindupaview");
+    const drugieokno = document.getElementById("main-view");
+    pierwszeokno.style.display = 'none';
+    drugieokno.style.display = "block";
+}
 document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.querySelector('.main-field');
     const lineNumbers = document.querySelector('.line-numbers');
@@ -39,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // koniec licznika linii
-
 // funkcje, odbieranie z index.js
 ipcRenderer.on('file-data', (event, data) => {
     document.getElementById('dupa').value = data;
@@ -54,6 +58,21 @@ ipcRenderer.on('trigger-file-save', () => {
     const content = document.getElementById('dupa').value;
     ipcRenderer.send('save-file-dialog', content);
 });
+ipcRenderer.on('otworzkurwaplik', (event, data) => {
+    dialog.showOpenDialog({ properties: ['openFile'] }).then(result => {
+      if (!result.canceled) {
+        fs.readFile(result.filePaths[0], 'utf-8', (err, data) => {
+          if (err) {
+            console.error('Error reading file:', err);
+            return;
+          }
+          ipcRenderer.send('file-data', data);
+        });
+      }
+    }).catch(err => {
+      console.error(err);
+    });
+  });
 ipcRenderer.on('godzina', (event) => {
     const now = new Date();
     const formattedDate = now.getDate().toString().padStart(2, '0') + '-' +
@@ -72,6 +91,7 @@ ipcRenderer.on('tts', () => {
     window.speechSynthesis.speak(msg);
 
 });
+
 // koniec funkcji
 /*
 // początek języków
